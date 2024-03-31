@@ -1,4 +1,4 @@
-
+from typing import List
 
 # extends example
 class Animal:
@@ -22,8 +22,9 @@ class Cat(Animal):
 dog = Dog("Rex")
 cat = Cat("Misty")
 
-dog.speak()
-dog.eat()
-cat.speak()
+animals: List[Animal] = [dog, cat]
 
-# super() example
+for animal in animals:
+    animal.speak()
+    animal.eat()
+
