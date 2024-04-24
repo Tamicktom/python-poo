@@ -94,6 +94,9 @@ class Game:
             else:
                 print("Invalid option")
 
+            is_hero_alive = self.hero.get_life() > 0
+            is_enemy_alive = self.enemy.get_life() > 0
+
         if (self.hero.get_life() > 0):
             print("Hero won!")
         elif (self.enemy.get_life() > 0):
