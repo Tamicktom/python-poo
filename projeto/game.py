@@ -29,6 +29,9 @@ class Hero(Character):
     def get_hability(self):
         return self.__hability
 
+    def show_details(self):
+        return f"{super().show_details()}, Hability: {self.get_hability()}"
+
 
 class Enemy(Character):
     def __init__(self, name, life, level, type):
@@ -37,6 +40,10 @@ class Enemy(Character):
 
     def get_type(self):
         return self.__type
+
+    def show_details(self):
+        return f"{super().show_details()}, Type: {self.get_type()}"
+
 
 hero = Hero('Hero', 100, 5, 'Fly')
 enemy = Enemy('Enemy', 100, 1, 'Orc')
