@@ -1,35 +1,5 @@
-# Character: class mother
-# Hero: Controlled by the player
-# Enemy: Controlled by the computer
-
-class Character:
-    def __init__(self, name: str, life: int, level: int) -> None:
-        self.__name = name
-        self.__life = life
-        self.__level = level
-
-    def get_name(self):
-        return self.__name
-
-    def get_life(self):
-        return self.__life
-
-    def get_level(self):
-        return self.__level
-
-    def show_details(self):
-        return f"Name: {self.get_name()}, Life: {self.get_life()}, Level: {self.get_level()}"
-
-    def atack(self, target: 'Character'):
-        damage = self.__level * 2
-        target.receive_damage(damage)
-        print(f"""{self.get_name()} is attacking {
-              target.get_name()} with {damage} points of damage""")
-
-    def receive_damage(self, damage: int):
-        self.__life -= damage
-        if (self.__life <= 0):
-            self.__life = 0
+import random
+from Character import Character
 
 
 class Hero(Character):
@@ -44,7 +14,7 @@ class Hero(Character):
         return f"{super().show_details()}, Hability: {self.get_hability()}"
 
     def special_attack(self, target: 'Character'):
-        damage = self.get_level() * 5
+        damage = random.randint(self.get_level() * 5, self.get_level() * 8)
         target.receive_damage(damage)
         print(f"""{self.get_name()} is attacking {
               target.get_name()} with {damage} points of damage""")
