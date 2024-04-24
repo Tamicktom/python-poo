@@ -45,8 +45,31 @@ class Enemy(Character):
         return f"{super().show_details()}, Type: {self.get_type()}"
 
 
-hero = Hero('Hero', 100, 5, 'Fly')
-enemy = Enemy('Enemy', 100, 1, 'Orc')
+class Game:
+    """ Class Orchestrator of the game """
 
-print(hero.show_details())
-print(enemy.show_details())
+    def __init__(self):
+        self.__hero = Hero('Hero', 100, 5, 'Fly')
+        self.__enemy = Enemy('Enemy', 100, 1, 'Orc')
+
+    def start_combat(self):
+        """ Make the hero attack the enemy """
+        print("Combat started")
+
+        is_hero_alive = self.__hero.get_life() > 0
+        is_enemy_alive = self.__enemy.get_life() > 0
+
+        while is_hero_alive and is_enemy_alive:
+            print("\nCharacters status:")
+            print(self.__hero.show_details())
+            print(self.__enemy.show_details())
+
+            input("\nPress Enter to attack the enemy")
+            choice = input(
+                "Choose the type of attack (1 - Basic, 2 - Special): ")
+
+
+# Create an instance of the Game class
+
+game = Game()
+game.start_combat()
